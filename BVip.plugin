@@ -1,0 +1,15 @@
+#!name = 哔哩哔哩 VIP 解锁
+#!desc = 哔哩哔哩移动端 VIP 权益与账号信息增强。对应原版 Surge 规则（国内加速版）。
+#!author = ddgksf2013
+#!icon = https://ghproxy.net/https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/bilibili.png
+#!date = 2026-09-23
+
+[Script]
+# 统一播放页 gRPC 请求拦截与网关中继
+http-request ^https:\/\/(grpc\.biliapi\.net|app\.bilibili\.com)\/bilibili\.app\.playerunite\.v1\.Player\/PlayViewUnite script-path = https://ghproxy.net/https://raw.githubusercontent.com/hparkour0518/-/main/bili.vip1.js, requires-body = true, binary-body-mode = true, timeout = 60, tag = BiliBili_PlayView_Vip
+
+# 个人中心账号信息 VIP 篡改
+http-response ^https?:\/\/app\.bilibili\.com\/x\/v2\/account\/ script-path = https://ghproxy.net/https://raw.githubusercontent.com/hparkour0518/-/main/bili.vip2.js, requires-body = true, timeout = 60, tag = BiliBili_Account_Vip
+
+[Mitm]
+hostname = grpc.biliapi.net, app.bilibili.com
