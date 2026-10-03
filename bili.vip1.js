@@ -1,4 +1,4 @@
-/*2026-10-03*/
+/*2026-10-3*/
 // [CUSTOM_CONFIG_START]
 // 自定义网关：
 const MY_GATEWAY_URL = "https://pilipili.hparkour0518.workers.dev/v1/playviewunite";
